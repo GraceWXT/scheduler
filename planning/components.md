@@ -18,19 +18,19 @@
 
 ### Button
 
-- State: NO STATE
-- Props: confirm (boolean), disabled (boolean), danger, boolean, onClick (function), clickable
-- Used by: EVERYONE
-
-### DayList
-
-- State:
-- Props:
-- Used by:
+- State: No State
+- Props: confirm (boolean), danger (boolean), disabled (boolean), onClick (function), children (text)
+- Used by: Everyone
 
 ### DayListItem
 
-- State:
+- State: No State
+- Props: name (string), spots (boolean), selected (boolean), setDay (function)
+- Used by: DayList
+
+### DayList
+
+- State: 
 - Props:
 - Used by:
 
