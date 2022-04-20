@@ -3,14 +3,29 @@ import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
 export default function InterviewerListItem(props) {
+
+  const { id, name, avatar, selected, setInterviewer } = props;
+
+  const classString = classNames("interviewers__item", {
+    "interviewers__item--selected": selected
+  });
+
+  const handleClick = () => setInterviewer(id);
+
+  const conditionalName = selected ? name : "";
+
   return (
-    <li className="interviewers__item">
+    <li
+      className={classString}
+      onClick={handleClick}
+    >
       <img
         className="interviewers__item-image"
-        src="https://i.imgur.com/LpaY82x.png"
-        alt="Sylvia Palmer"
+        src={avatar}
+        alt={name}
       />
-      Sylvia Palmer
+      {conditionalName}
     </li>
   );
+
 }
