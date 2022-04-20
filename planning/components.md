@@ -25,7 +25,7 @@
 ### DayListItem
 
 - State: No State
-- Props: name (string), spots (boolean), selected (boolean), setDay (function)
+- Props: key (number), name (string), spots (boolean), selected (boolean), setDay (function)
 - Used by: DayList
 
 ### DayList
