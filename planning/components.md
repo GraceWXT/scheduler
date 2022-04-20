@@ -36,7 +36,7 @@
 
 ### InterviewerListItem
 
-- State:
+- State: No State
 - Props: id (number), name (string), avatar (url string), selected (boolean), setInterviewer (function)
 - Used by: InterviewerList
 
