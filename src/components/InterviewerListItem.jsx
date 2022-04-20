@@ -4,13 +4,13 @@ import "components/InterviewerListItem.scss";
 
 export default function InterviewerListItem(props) {
 
-  const { id, name, avatar, selected, setInterviewer } = props;
+  const { id, name, avatar, selected, setSelectedInterviewer } = props;
 
   const classString = classNames("interviewers__item", {
     "interviewers__item--selected": selected
   });
 
-  const handleClick = () => setInterviewer(id);
+  const handleClick = () => setSelectedInterviewer(id);
 
   const conditionalName = selected ? name : "";
 

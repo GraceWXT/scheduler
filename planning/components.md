@@ -25,26 +25,26 @@
 ### DayListItem
 
 - State: No State
-- Props: key (number), name (string), spots (boolean), selected (boolean), setDay (function)
+- Props: key (number), name (string), spots (boolean), selected (boolean), setSelectedDay (function)
 - Used by: DayList
 
 ### DayList
 
 - State: No State
-- Props: days (array), selectedDay (string), setDay (function)
+- Props: days (array), selectedDay (string), setSelectedDay (function)
 - Used by: Application
 
 ### InterviewerListItem
 
 - State: No State
-- Props: id (number), name (string), avatar (url string), selected (boolean), setInterviewer (function)
+- Props: id (number), name (string), avatar (url string), selected (boolean), setSelectedInterviewer (function)
 - Used by: InterviewerList
 
 ### InterviewerList
 
-- State:
-- Props:
-- Used by:
+- State: No State
+- Props: interviewers (array), selectedInterviewer (number), setSelectedInterviewer (function)
+- Used by: Application
 
 ### Appointment
 

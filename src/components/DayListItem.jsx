@@ -4,14 +4,14 @@ import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
 
-  const { name, spots, selected, setDay } = props;
+  const { name, spots, selected, setSelectedDay } = props;
 
   const classString = classNames("day-list__item", {
     "day-list__item--selected": selected,
     "day-list__item--full": !spots
   });
 
-  const handleClick = () => setDay(name);
+  const handleClick = () => setSelectedDay(name);
 
   const formatedSpots = ((spots) => {
     switch (spots) {
