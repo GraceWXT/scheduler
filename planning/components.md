@@ -4,7 +4,7 @@
 
 - [x] Button
 - [x] DayListItem
-- [ ] DayList
+- [x] DayList
 - [ ] InterviewerListItem
 - [ ] InterviewerList
 - [ ] Appointment
@@ -30,17 +30,17 @@
 
 ### DayList
 
-- State: 
+- State: No State
 - Props: days (array), selectedDay (string), setDay (function)
-- Used by:
-
-### InterviewerList
-
-- State:
-- Props:
-- Used by:
+- Used by: Application
 
 ### InterviewerListItem
+
+- State:
+- Props: id (number), name (string), avatar (url string), selected (boolean), setInterviewer (function)
+- Used by: InterviewerList
+
+### InterviewerList
 
 - State:
 - Props:
@@ -70,7 +70,7 @@
 - Props:
 - Used by:
 
-### Appointment/Form
+### Appointment/Confirm
 
 - State:
 - Props:
@@ -88,7 +88,7 @@
 - Props:
 - Used by:
 
-### Appointment/Confirm
+### Appointment/Form
 
 - State:
 - Props:
