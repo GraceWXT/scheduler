@@ -31,7 +31,7 @@
 ### DayList
 
 - State: 
-- Props:
+- Props: days (array), day (string), setDay (function)
 - Used by:
 
 ### InterviewerList
