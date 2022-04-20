@@ -19,7 +19,7 @@
 ### Button
 
 - State: No State
-- Props: confirm (boolean), danger (boolean), disabled (boolean), onClick (function), children (text)
+- Props: confirm (boolean), danger (boolean), disabled (boolean), onClick (function), children (string)
 - Used by: Everyone
 
 ### DayListItem
@@ -31,7 +31,7 @@
 ### DayList
 
 - State: 
-- Props: days (array), day (string), setDay (function)
+- Props: days (array), selectedDay (string), setDay (function)
 - Used by:
 
 ### InterviewerList
