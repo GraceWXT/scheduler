@@ -11,8 +11,6 @@ export default function DayListItem(props) {
     "day-list__item--full": !spots
   });
 
-  const handleClick = () => setSelectedDay(name);
-
   const formatedSpots = ((spots) => {
     switch (spots) {
     case 0:
@@ -28,7 +26,7 @@ export default function DayListItem(props) {
     <li
       selected={selected}
       className={classString}
-      onClick={handleClick}
+      onClick={setSelectedDay}
     >
       <h2 className="text--regular">{name}</h2>
       <h3 className="text--light">{formatedSpots} remaining</h3>
