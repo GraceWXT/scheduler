@@ -13,7 +13,7 @@
 - [x] Appointment/Show
 - [x] Appointment/ConfirmDelete
 - [x] Appointment/Status
-- [ ] Appointment/Error
+- [x] Appointment/Error
 - [ ] Appointment/Form
 
 ### Button
@@ -37,13 +37,13 @@
 ### InterviewerListItem
 
 - State: No State
-- __Props__: key (number), ~~__id__ (number), no longer needed since it's been passed as part the handleClick function~~ __name__ (string), __avatar__ (url string), __selected__ (boolean), __handleClick__ (a function that runs setSelectedInterviewer(id))
+- __Props__: key (number), ~~__id__ (number), no longer needed since it's been passed as part the handleClick function~~ __name__ (string), __avatar__ (url string), __selected__ (boolean), __handleClick__ (a function that runs setInterviewer(id))
 - Used by: InterviewerList
 
 ### InterviewerList
 
 - State: No State
-- __Props__: __interviewers__ (array), __value__ (the selectedInterviewer id number), __handleClick__ (the setSelectedInterviewer function)
+- __Props__: __interviewers__ (array), __value__ (the interviewer id number), __handleClick__ (the setInterviewer function)
 - Used by: Application
 
 ### Appointment
@@ -90,6 +90,6 @@
 
 ### Appointment/Form
 
-- State:
-- __Props__:
+- State: student (name input, string), interviewer (id, number or null)
+- __Props__: __student__ (String), __interviewers__ (Array), __interviewer__ (Number), __handleSave__ (Function), __handleCancel__ (Function),
 - Used by: Appointment
