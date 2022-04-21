@@ -70,7 +70,7 @@
 - __Props__: __student__ (String), __interviewer__ (Object), __handleEdit__ (Function), __handleDelete__ (Function)
 - Used by: Appointment
 
-### Appointment/Confirm
+### Appointment/ConfirmDelete
 
 - State:
 - __Props__:
