@@ -156,25 +156,29 @@ storiesOf("Appointment", module)
       interviewer={interviewer}
       handleEdit={action("handleEdit")}
       handleDelete={action("handleDelete")}
-    />))
+    />
+  ))
   .add("ConfirmDelete", () => (
     <ConfirmDelete
       message="Delete the appointment?"
       handleConfirm={action("handleConfirm")}
       handleCancel={action("handleCancel")}
-    />))
+    />
+  ))
   .add("Status", () => <Status message="Deleting"/>)
   .add("Error", () => (
     <Error
       message="Could not delete appointment."
       handleClose={action("handleClose")}
-    />))
+    />
+  ))
   .add("Form creating", () => (
     <Form
       interviewers={interviewers}
       handleSave={action("handleSave")}
       handleCancel={action("handleCancel")}
-    />))
+    />
+  ))
   .add("Form editing", () => (
     <Form
       student="Lydia Miller-Jones"
@@ -182,4 +186,21 @@ storiesOf("Appointment", module)
       interviewers={interviewers}
       handleSave={action("handleSave")}
       handleCancel={action("handleCancel")}
-    />));
+    />
+  ))
+  .add("Appointment Empty", () => (
+    <>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </>
+  ))
+  .add("Appointment Booked", () => (
+    <>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </>
+  ));
