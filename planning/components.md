@@ -8,7 +8,7 @@
 - [x] InterviewerListItem
 - [x] InterviewerList
 - [ ] Appointment
-- [ ] Appointment/Header
+- [x] Appointment/Header
 - [ ] Appointment/Empty
 - [ ] Appointment/Show
 - [ ] Appointment/Confirm
@@ -54,42 +54,42 @@
 
 ### Appointment/Header
 
-- State:
-- __Props__:
-- Used by:
+- State: No State
+- __Props__: __time__ (string)
+- Used by: Appointment
 
 ### Appointment/Empty
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
 
 ### Appointment/Show
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
 
 ### Appointment/Confirm
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
 
 ### Appointment/Status
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
 
 ### Appointment/Error
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
 
 ### Appointment/Form
 
 - State:
 - __Props__:
-- Used by:
+- Used by: Appointment
