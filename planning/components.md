@@ -12,7 +12,7 @@
 - [x] Appointment/Empty
 - [x] Appointment/Show
 - [x] Appointment/ConfirmDelete
-- [ ] Appointment/Status
+- [x] Appointment/Status
 - [ ] Appointment/Error
 - [ ] Appointment/Form
 
@@ -78,14 +78,14 @@
 
 ### Appointment/Status
 
-- State:
-- __Props__:
+- State: No State
+- __Props__: __message__ (String)
 - Used by: Appointment
 
 ### Appointment/Error
 
-- State:
-- __Props__:
+- State: No State
+- __Props__: __message__ (String),  __handleClose__ (Function)
 - Used by: Appointment
 
 ### Appointment/Form

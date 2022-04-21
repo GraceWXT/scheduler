@@ -16,6 +16,7 @@ import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
 import ConfirmDelete from "components/Appointment/ConfirmDelete";
 import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
 
 storiesOf("Button", module)
   .addParameters({
@@ -150,4 +151,5 @@ storiesOf("Appointment", module)
   .add("Empty", () => <Empty handleAdd={action("handleAdd")} />)
   .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer} handleEdit={action("handleEdit")} handleDelete={action("handleDelete")}/>)
   .add("ConfirmDelete", () => <ConfirmDelete message="Delete the appointment?" handleConfirm={action("handleConfirm")} handleCancel={action("handleCancel")}/>)
-  .add("Status", () => <Status message="Deleting"/>);
+  .add("Status", () => <Status message="Deleting"/>)
+  .add("Error", () => <Error message="Could not delete appointment." handleClose={action("handleClose")}/>);
