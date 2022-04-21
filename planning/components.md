@@ -60,8 +60,8 @@
 
 ### Appointment/Empty
 
-- State:
-- __Props__:
+- State: No State
+- __Props__: __handleAdd__ (a function to handle a click on the add button)
 - Used by: Appointment
 
 ### Appointment/Show
