@@ -11,7 +11,7 @@
 - [x] Appointment/Header
 - [x] Appointment/Empty
 - [x] Appointment/Show
-- [ ] Appointment/ConfirmDelete
+- [x] Appointment/ConfirmDelete
 - [ ] Appointment/Status
 - [ ] Appointment/Error
 - [ ] Appointment/Form
