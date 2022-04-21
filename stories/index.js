@@ -146,4 +146,4 @@ storiesOf("Appointment", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty handleAdd={action("handleAdd")} />)
-  .add("Show", () => <Show handleEdit={action("handleEdit")} handleDelete={action("handleDelete")}/>);
+  .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer} handleEdit={action("handleEdit")} handleDelete={action("handleDelete")}/>);
