@@ -9,7 +9,7 @@
 - [x] InterviewerList
 - [ ] Appointment
 - [x] Appointment/Header
-- [ ] Appointment/Empty
+- [x] Appointment/Empty
 - [ ] Appointment/Show
 - [ ] Appointment/Confirm
 - [ ] Appointment/Status
@@ -66,8 +66,8 @@
 
 ### Appointment/Show
 
-- State:
-- __Props__:
+- State: No State
+- __Props__: __student__ (String), __interviewer__ (Object), __handleEdit__ (Function), __handleDelete__ (Function)
 - Used by: Appointment
 
 ### Appointment/Confirm
