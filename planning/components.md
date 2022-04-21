@@ -5,8 +5,8 @@
 - [x] Button
 - [x] DayListItem
 - [x] DayList
-- [ ] InterviewerListItem
-- [ ] InterviewerList
+- [x] InterviewerListItem
+- [x] InterviewerList
 - [ ] Appointment
 - [ ] Appointment/Header
 - [ ] Appointment/Empty
@@ -19,77 +19,77 @@
 ### Button
 
 - State: No State
-- Props: confirm (boolean), danger (boolean), disabled (boolean), onClick (function), children (string)
+- __Props__: __confirm__ (boolean), __danger__ (boolean), __disabled__ (boolean), __onClick__ (function), __children__ (string)
 - Used by: Everyone
 
 ### DayListItem
 
 - State: No State
-- Props: key (number), name (string), spots (boolean), selected (boolean), handleClick (a function that runs setSelectedDay(name) )
+- __Props__: key (number), __name__ (string), __spots__ (boolean), __selected__ (boolean), __handleClick__ (a function that runs setSelectedDay(name))
 - Used by: DayList
 
 ### DayList
 
 - State: No State
-- Props: days (array), value (the selectedDay name string),  handleClick (the setSelectedDay function)
+- __Props__: __days__ (array), __value__ (the selectedDay name string),  __handleClick__ (the setSelectedDay function)
 - Used by: Application
 
 ### InterviewerListItem
 
 - State: No State
-- Props: key (number), id (number), name (string), avatar (url string), selected (boolean), setSelectedInterviewer (function)
+- __Props__: key (number), ~~__id__ (number), no longer needed since it's been passed as part the handleClick function~~ __name__ (string), __avatar__ (url string), __selected__ (boolean), __handleClick__ (a function that runs setSelectedInterviewer(id))
 - Used by: InterviewerList
 
 ### InterviewerList
 
 - State: No State
-- Props: interviewers (array), selectedInterviewer (number), setSelectedInterviewer (function)
+- __Props__: __interviewers__ (array), __value__ (the selectedInterviewer id number), __handleClick__ (the setSelectedInterviewer function)
 - Used by: Application
 
 ### Appointment
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Header
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Empty
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Show
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Confirm
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Status
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Error
 
 - State:
-- Props:
+- __Props__:
 - Used by:
 
 ### Appointment/Form
 
 - State:
-- Props:
+- __Props__:
 - Used by:
