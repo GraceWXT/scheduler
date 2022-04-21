@@ -19,7 +19,7 @@
 ### Button
 
 - State: No State
-- __Props__: __confirm__ (boolean), __danger__ (boolean), __disabled__ (boolean), __onClick__ (function), __children__ (string)
+- __Props__: __confirm__ (boolean), __danger__ (boolean), __disabled__ (boolean), __handleClick__ (function), __children__ (string)
 - Used by: Everyone
 
 ### DayListItem
@@ -37,13 +37,13 @@
 ### InterviewerListItem
 
 - State: No State
-- __Props__: key (number), ~~__id__ (number), no longer needed since it's been passed as part the handleClick function~~ __name__ (string), __avatar__ (url string), __selected__ (boolean), __handleClick__ (a function that runs setInterviewer(id))
+- __Props__: key (number), ~~__id__ (number), no longer needed since it's been passed as part the handleClick function~~ __name__ (string), __avatar__ (url string), __selected__ (boolean), __handleClick__ (a function that runs setInterviewerId(id))
 - Used by: InterviewerList
 
 ### InterviewerList
 
 - State: No State
-- __Props__: __interviewers__ (array), __value__ (the interviewer id number), __handleClick__ (the setInterviewer function)
+- __Props__: __interviewers__ (array), __value__ (the interviewer id number), __handleClick__ (the setInterviewerId function)
 - Used by: Application
 
 ### Appointment
