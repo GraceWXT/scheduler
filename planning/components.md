@@ -14,7 +14,7 @@
 - [x] Appointment/ConfirmDelete
 - [x] Appointment/Status
 - [x] Appointment/Error
-- [ ] Appointment/Form
+- [x] Appointment/Form
 
 ### Button
 
@@ -48,9 +48,9 @@
 
 ### Appointment
 
-- State:
-- __Props__:
-- Used by:
+- State: No State
+- __Props__: __time__ (string), __interview__ (object: student (string), interviewer (object)),
+- Used by: Application
 
 ### Appointment/Header
 

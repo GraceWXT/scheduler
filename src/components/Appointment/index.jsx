@@ -1,12 +1,21 @@
 import React from "react";
 import "components/Appointment/styles.scss";
+import Header from "./Header";
+import Show from "./Show";
+import Empty from "./Empty";
 
 export default function Appointment(props) {
-  const { time } = props;
-  const text = time ? `Appointment at ${time}` : "No Appointmemnts";
+
+  const { time, interview } = props;
+  // const { student, interviewer } = interview;
+
+  const body = interview ? <Show {...interview}/> : <Empty />;
+
   return (
     <article className="appointment">
-      {text}
+      <Header time={time}/>
+      {body}
     </article>
   );
+
 }
