@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Show(props) {
+  
   const { student, interviewer, handleEdit, handleDelete } = props;
 
   return (
