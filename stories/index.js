@@ -35,7 +35,7 @@ storiesOf("DayListItem", module)
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />)
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setSelectedDay={action("setSelectedDay")} spots={5} />
+    <DayListItem name="Tuesday" handleClick={action("handleClick")} spots={5} />
   ));
 
 const days = [
@@ -61,13 +61,13 @@ storiesOf("DayList", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
   })
   .add("Monday", () => (
-    <DayList days={days} selectedDay={"Monday"} setSelectedDay={action("setSelectedDay")} />
+    <DayList days={days} value={"Monday"} handleClick={action("handleClick")} />
   ))
   .add("Tuesday", () => (
-    <DayList days={days} selectedDay={"Tuesday"} setSelectedDay={action("setSelectedDay")} />
+    <DayList days={days} value={"Tuesday"} handleClick={action("handleClick")} />
   ))
   .add("Wednesday", () => (
-    <DayList days={days} selectedDay={"Wednesday"} setSelectedDay={action("setSelectedDay")} />
+    <DayList days={days} value={"Wednesday"} handleClick={action("handleClick")} />
   ));
 
 const interviewer = {
