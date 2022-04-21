@@ -13,6 +13,7 @@ import InterviewerList from "components/InterviewerList.jsx";
 import Appointment from "components/Appointment/index.jsx";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
 
 storiesOf("Button", module)
   .addParameters({
@@ -144,4 +145,5 @@ storiesOf("Appointment", module)
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
-  .add("Empty", () => <Empty handleAdd={action("handleAdd")} />);
+  .add("Empty", () => <Empty handleAdd={action("handleAdd")} />)
+  .add("Show", () => <Show handleEdit={action("handleEdit")} handleDelete={action("handleDelete")}/>);
