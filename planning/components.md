@@ -25,13 +25,13 @@
 ### DayListItem
 
 - State: No State
-- Props: key (number), name (string), spots (boolean), selected (boolean), setSelectedDay (function)
+- Props: key (number), name (string), spots (boolean), selected (boolean), handleClick (a function that runs setSelectedDay(name) )
 - Used by: DayList
 
 ### DayList
 
 - State: No State
-- Props: days (array), selectedDay (string), setSelectedDay (function)
+- Props: days (array), value (the selectedDay name string),  handleClick (the setSelectedDay function)
 - Used by: Application
 
 ### InterviewerListItem
