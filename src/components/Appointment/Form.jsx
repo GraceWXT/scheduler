@@ -13,10 +13,20 @@ export default function Form(props) {
     setStudentName(event.target.value);
   };
 
+  const resetForm = () => {
+    setStudentName("");
+    setInterviewerId(null);
+  };
+
+  const cancel = () => {
+    resetForm();
+    handleCancel();
+  };
+
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={event => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
@@ -34,8 +44,8 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger handleClick={}>Cancel</Button>
-          <Button confirm handleClick={}>Save</Button>
+          <Button danger handleClick={cancel}>Cancel</Button>
+          <Button confirm handleClick={handleSave}>Save</Button>
         </section>
       </section>
     </main>
