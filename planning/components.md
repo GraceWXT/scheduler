@@ -10,8 +10,8 @@
 - [ ] Appointment
 - [x] Appointment/Header
 - [x] Appointment/Empty
-- [ ] Appointment/Show
-- [ ] Appointment/Confirm
+- [x] Appointment/Show
+- [ ] Appointment/ConfirmDelete
 - [ ] Appointment/Status
 - [ ] Appointment/Error
 - [ ] Appointment/Form
@@ -72,8 +72,8 @@
 
 ### Appointment/ConfirmDelete
 
-- State:
-- __Props__:
+- State: No State
+- __Props__: __message__ (String), __handleConfirm__ (Function), __handleCancel__ (Function)
 - Used by: Appointment
 
 ### Appointment/Status
