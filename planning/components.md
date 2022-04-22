@@ -93,3 +93,9 @@
 - State: student (name input, string), interviewer (id, number or null)
 - __Props__: __student__ (String), __interviewers__ (Array), __interviewer__ (Number), __handleSave__ (Function), __handleCancel__ (Function),
 - Used by: Appointment
+
+### Application
+
+- State: days, selectedDay
+- __Props__: 
+- Used by: Everyone
