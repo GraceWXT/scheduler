@@ -96,6 +96,6 @@
 
 ### Application
 
-- State: days, selectedDay
+- State: days (array), selectedDay (name string), appointements (object of objects)
 - __Props__: 
 - Used by: Everyone
