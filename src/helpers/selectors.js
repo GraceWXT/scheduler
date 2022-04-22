@@ -16,6 +16,7 @@ const getAppointmentsForDay = (state, selectedDay) => {
   const appointmentsObjArr = appointmentsIdArr.map(id => appointments[id]);
 
   return appointmentsObjArr;
+  
 };
 
 export { getAppointmentsForDay };

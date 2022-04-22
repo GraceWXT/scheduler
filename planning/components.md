@@ -7,7 +7,7 @@
 - [x] DayList
 - [x] InterviewerListItem
 - [x] InterviewerList
-- [ ] Appointment
+- [x] Appointment
 - [x] Appointment/Header
 - [x] Appointment/Empty
 - [x] Appointment/Show
