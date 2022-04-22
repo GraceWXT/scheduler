@@ -1,3 +1,6 @@
+/** A function that given the state variables and a selected day,
+ * returns an array of Appointment objects
+ */
 const getAppointmentsForDay = (state, selectedDay) => {
 
   const { days, appointments } = state;
@@ -16,7 +19,15 @@ const getAppointmentsForDay = (state, selectedDay) => {
   const appointmentsObjArr = appointmentsIdArr.map(id => appointments[id]);
 
   return appointmentsObjArr;
-  
+
 };
 
-export { getAppointmentsForDay };
+/** A Function that replaces the interviewer property in the interview object
+ *  from the interviewer id to the matching interviewer object */
+const getInterview = ({ interviewers }, interview) => {
+  if (!interview) return null;
+
+  return interview = {...interview, interviewer: interviewers[interview.interviewer]};
+};
+
+export { getAppointmentsForDay, getInterview };
