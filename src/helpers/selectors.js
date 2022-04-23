@@ -19,6 +19,26 @@ const getAppointmentsForDay = (state, selectedDay) => {
 
 };
 
+/** A function that given the state variables and a selected day,
+ * returns an array of interviewer objects
+ */
+const getInterviewersForDay = (state, selectedDay) => {
+
+  const { days, interviewers } = state;
+
+  if (days.length === 0) return [];
+
+  const dayObj = days.filter(day => day.name === selectedDay)[0];
+
+  if (!dayObj) return [];
+  
+  const interviewersIdArr = dayObj.interviewers;
+  const interviewersObjArr = interviewersIdArr.map(id => ({...interviewers[id]}));
+
+  return interviewersObjArr;
+
+};
+
 /** A Function that given an interview object with "interviewer: id" property,
  *  returns a copy of the interview object with the matching "interviewer: object" property */
 const getInterview = ({ interviewers }, interview) => {
@@ -27,4 +47,4 @@ const getInterview = ({ interviewers }, interview) => {
   return {...interview, interviewer: interviewers[interview.interviewer]};
 };
 
-export { getAppointmentsForDay, getInterview };
+export { getAppointmentsForDay, getInterviewersForDay, getInterview };
