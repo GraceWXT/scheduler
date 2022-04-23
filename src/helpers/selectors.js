@@ -2,15 +2,11 @@
  * returns an array of Appointment objects (that are references
  * of the appointments object properties)
  */
-const getAppointmentsForDay = (state, selectedDay) => {
+const getAppointmentsForDay = ({ days, appointments, selectedDay }) => {
 
-  const { days, appointments } = state;
-
-  if (days.length === 0) return [];
-
-  const dayObj = days.filter(day => day.name === selectedDay)[0];
-
-  if (!dayObj) return [];
+  const dayObj = days.find(day => day.name === selectedDay);
+  
+  if (days.length === 0 || !dayObj) return [];
   
   const appointmentsIdArr = dayObj.appointments;
   const appointmentsObjArr = appointmentsIdArr.map(id => appointments[id]);
@@ -22,15 +18,11 @@ const getAppointmentsForDay = (state, selectedDay) => {
 /** A function that given the state variables and a selected day,
  * returns an array of interviewer objects
  */
-const getInterviewersForDay = (state, selectedDay) => {
+const getInterviewersForDay = ({ days, interviewers, selectedDay }) => {
 
-  const { days, interviewers } = state;
+  const dayObj = days.find(day => day.name === selectedDay);
 
-  if (days.length === 0) return [];
-
-  const dayObj = days.filter(day => day.name === selectedDay)[0];
-
-  if (!dayObj) return [];
+  if (days.length === 0 || !dayObj) return [];
   
   const interviewersIdArr = dayObj.interviewers;
   const interviewersObjArr = interviewersIdArr.map(id => ({...interviewers[id]}));

@@ -36,12 +36,12 @@ export default function Application() {
 
   const setSelectedDay = selectedDay => setState({ ...state, selectedDay });
 
-  const dailyAppointmentsArr = getAppointmentsForDay(state, selectedDay);
+  const dailyAppointmentsArr = getAppointmentsForDay(state);
 
   const appointmentList = dailyAppointmentsArr.map(appointment => {
 
     const interview = getInterview(state, appointment.interview);
-    const interviewers = getInterviewersForDay(state, selectedDay);
+    const interviewers = getInterviewersForDay(state);
     return (
       <Appointment
         key={appointment.id}
