@@ -49,7 +49,7 @@
 ### Appointment
 
 - State: No State
-- __Props__: key (number), __id__ (number), __time__ (string), __interview__ (object: student (string), interviewer (object)),
+- __Props__: key (number), __id__ (number), __time__ (string), __interview__ (object: student (string), interviewer (object)), __interviewers__ (array of objects)
 - Used by: Application
 
 ### Appointment/Header
@@ -91,7 +91,7 @@
 ### Appointment/Form
 
 - State: student (name input, string), interviewer (id, number or null)
-- __Props__: __student__ (String), __interviewers__ (Array), __interviewer__ (Number), __handleSave__ (Function), __handleCancel__ (Function),
+- __Props__: __student__ (String, optional), __interviewer__ (Number, optional), __interviewers__ (Array), __handleSave__ (Function), __handleCancel__ (Function),
 - Used by: Appointment
 
 ### Application
