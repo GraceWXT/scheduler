@@ -49,7 +49,7 @@
 ### Appointment
 
 - State: No State
-- __Props__: __time__ (string), __interview__ (object: student (string), interviewer (object)),
+- __Props__: key (number), __id__ (number), __time__ (string), __interview__ (object: student (string), interviewer (object)),
 - Used by: Application
 
 ### Appointment/Header
@@ -96,6 +96,6 @@
 
 ### Application
 
-- State: days (array), selectedDay (name string), appointements (object of objects)
+- State: days (array), selectedDay (name string), appointements (object of objects), interviewers (object of objects)
 - __Props__: 
 - Used by: Everyone

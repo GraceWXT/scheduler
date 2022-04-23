@@ -7,7 +7,6 @@ import Empty from "./Empty";
 export default function Appointment(props) {
 
   const { time, interview } = props;
-  // const { student, interviewer } = interview;
 
   const body = interview ? <Show {...interview}/> : <Empty />;
 
