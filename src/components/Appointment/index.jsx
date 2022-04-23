@@ -23,7 +23,12 @@ export default function Appointment(props) {
     case SHOW:
       return <Show {...interview}/>;
     case CREATE:
-      return <Form interviewers={[]}/>;
+      return (
+        <Form
+          interviewers={[]}
+          handleCancel={()=>back()}
+        />
+      );
     }
   })();
 
