@@ -96,6 +96,6 @@
 
 ### Application
 
-- State: days (array), selectedDay (name string), appointements (object of objects), interviewers (object of objects)
-- __Props__: 
+- __State__: __days__ (array), __selectedDay__ (name string), __appointements__ (object of objects), __interviewers__ (object of objects)
+- Props: 
 - Used by: Everyone
