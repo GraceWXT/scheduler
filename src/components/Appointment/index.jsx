@@ -9,14 +9,6 @@ import useVisualMode from "hooks/useVisualMode";
 export default function Appointment(props) {
 
   const { id, time, interview, interviewers, bookInterview } = props;
-
-  const save = (name, interviewer) => {
-    const interview = {
-      student: name,
-      interviewer
-    };
-    bookInterview(id, interview);
-  };
   
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -24,6 +16,14 @@ export default function Appointment(props) {
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
   
+
+  const save = (name, interviewer) => {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    bookInterview(id, interview).then(() => transition(SHOW));
+  };
   const body = (() => {
     switch (mode) {
     case EMPTY:
