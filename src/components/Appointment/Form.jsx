@@ -45,7 +45,7 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger handleClick={cancel}>Cancel</Button>
-          <Button confirm handleClick={handleSave}>Save</Button>
+          <Button confirm handleClick={()=> handleSave(studentName, interviewerId)}>Save</Button>
         </section>
       </section>
     </main>
