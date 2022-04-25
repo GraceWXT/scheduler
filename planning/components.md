@@ -49,7 +49,7 @@
 ### Appointment
 
 - State: No State
-- __Props__: key (number), __id__ (number), __time__ (string), __interview__ (object: student (string), interviewer (object)), __interviewers__ (array of objects), __bookInterview__ (function)
+- __Props__: key (number), __id__ (number), __time__ (string), __interview__ (object: student (string), interviewer (object)), __interviewers__ (array of objects), __bookInterview__ (function), __deleteInterview__ (function)
 - Used by: Application
 
 ### Appointment/Header

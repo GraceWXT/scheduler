@@ -9,7 +9,7 @@ import Status from "./Status";
 
 export default function Appointment(props) {
 
-  const { id, time, interview, interviewers, bookInterview } = props;
+  const { id, time, interview, interviewers, bookInterview, deleteInterview } = props;
   
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -19,7 +19,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
   
 
-  const save = (name, interviewer) => {
+  const saveAppo = (name, interviewer) => {
     const interview = {
       student: name,
       interviewer
@@ -27,22 +27,34 @@ export default function Appointment(props) {
     transition(SAVING);
     bookInterview(id, interview).then(() => transition(SHOW));
   };
+
+  const deleteAppo = () => {
+    deleteInterview(id);
+  };
+
   const body = (() => {
     switch (mode) {
     case EMPTY:
       return <Empty handleAdd={()=>transition(CREATE)}/>;
     case SHOW:
-      return <Show {...interview}/>;
+      return (
+        <Show
+          {...interview}
+          handleDelete={deleteAppo}
+        />
+      );
     case CREATE:
       return (
         <Form
           interviewers={interviewers}
-          handleSave={(name, interviewer) => save(name, interviewer)}
+          handleSave={(name, interviewer) => saveAppo(name, interviewer)}
           handleCancel={()=>back()}
         />
       );
     case SAVING:
       return <Status message="Saving" />;
+    default:
+      return;
     }
   })();
 

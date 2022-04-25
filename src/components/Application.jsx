@@ -51,6 +51,20 @@ export default function Application() {
       .then(() => setState(prev => ({...prev, appointments})));
   };
 
+  const deleteInterview = (id) => {
+    console.log("deleteInterview --> Set interview to null for appointment id:", id);
+    // const appointment = {
+    //   ...state.appointments[id],
+    //   interview: { ...interview }
+    // };
+    // const appointments = {
+    //   ...state.appointments,
+    //   [id]: appointment
+    // };
+    // return axios.put(`/api/appointments/${id}`, {interview})
+    //   .then(() => setState(prev => ({...prev, appointments})));
+  };
+
   const appointmentList = dailyAppointmentsArr.map(appointment => {
 
     const interview = getInterview(state, appointment.interview);
@@ -63,6 +77,7 @@ export default function Application() {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        deleteInterview={deleteInterview}
       />
     );
   });
