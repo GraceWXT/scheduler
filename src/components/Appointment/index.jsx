@@ -18,6 +18,7 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
   const CONFIRMDELTE = "CONFIRMDELTE";
   const DELETING = "DELETING";
+  const EDIT = "EDIT";
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
@@ -29,7 +30,9 @@ export default function Appointment(props) {
     transition(SAVING);
     bookInterview(id, interview).then(() => transition(SHOW));
   };
-
+  const editAppo = () => {
+    transition(EDIT);
+  };
   const confirmDeleteOfAppo = () => {
     transition(CONFIRMDELTE);
   };
@@ -48,6 +51,7 @@ export default function Appointment(props) {
         <Show
           {...interview}
           handleDelete={confirmDeleteOfAppo}
+          handleEdit={editAppo}
         />
       );
     case CREATE:
@@ -70,6 +74,16 @@ export default function Appointment(props) {
       );
     case DELETING:
       return <Status message="Deleting" />;
+    case EDIT:
+      return (
+        <Form
+          student={interview.student}
+          interviewer={interview.interviewer.id}
+          interviewers={interviewers}
+          handleSave={(name, interviewer) => saveAppo(name, interviewer)}
+          handleCancel={()=>back()}
+        />
+      );
     default:
       return;
     }
