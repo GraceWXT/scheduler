@@ -31,10 +31,20 @@ describe("Form", () => {
 
   it("validates that the student name is not blank", () => {
     /* 1. Create the mock handleSave function */
+    const handleSave = jest.fn();
 
     /* 2. Render the Form with interviewers and the handleSave mock function passed as an handleSave prop, the student prop should be blank or undefined */
-
+    const { getByText } = render(
+      <Form
+        interviewer={1}
+        interviewers={interviewers}
+        handleSave={handleSave}
+      />
+    );
+    
     /* 3. Click the save button */
+    const saveButton = getByText("Save");
+    fireEvent.click(saveButton);
 
     /* 1. validation is shown */
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
@@ -45,10 +55,21 @@ describe("Form", () => {
   
   it("validates that the interviewer cannot be null", () => {
     /* 1. Create the mock handleSave function */
+    const handleSave = jest.fn();
 
     /* 2. Render the Form with interviewers and the handleSave mock function passed as an handleSave prop, the interviewer prop should be null */
+    const { getByText } = render(
+      <Form
+        student="Lydia Miller-Jones"
+        interviewer={null}
+        interviewers={interviewers}
+        handleSave={handleSave}
+      />
+    );
 
     /* 3. Click the save button */
+    const saveButton = getByText("Save");
+    fireEvent.click(saveButton);
 
     /* 1. validation is shown */
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
@@ -70,6 +91,7 @@ describe("Form", () => {
         handleSave={handleSave}
       />
     );
+
     /* 3. Click the save button */
     const saveButton = getByText("Save");
     fireEvent.click(saveButton);
