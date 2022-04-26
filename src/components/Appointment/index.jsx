@@ -6,6 +6,7 @@ import Empty from "./Empty";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
+import ConfirmDelete from "./ConfirmDelete";
 
 export default function Appointment(props) {
 
@@ -15,6 +16,8 @@ export default function Appointment(props) {
   const SHOW = "SHOW";
   const CREATE = "CREATE";
   const SAVING = "SAVING";
+  const CONFIRMDELTE = "CONFIRMDELTE";
+  const DELETING = "DELETING";
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
@@ -27,7 +30,12 @@ export default function Appointment(props) {
     bookInterview(id, interview).then(() => transition(SHOW));
   };
 
+  const confirmDeleteOfAppo = () => {
+    transition(CONFIRMDELTE);
+  };
   const deleteAppo = () => {
+    console.log("deleteAppo called");
+    transition(DELETING);
     deleteInterview(id).then(() => transition(EMPTY));
   };
 
@@ -39,7 +47,7 @@ export default function Appointment(props) {
       return (
         <Show
           {...interview}
-          handleDelete={deleteAppo}
+          handleDelete={confirmDeleteOfAppo}
         />
       );
     case CREATE:
@@ -52,6 +60,16 @@ export default function Appointment(props) {
       );
     case SAVING:
       return <Status message="Saving" />;
+    case CONFIRMDELTE:
+      return (
+        <ConfirmDelete
+          message="Are you sure you would like to delete this appointment?"
+          handleConfirm={deleteAppo}
+          handleCancel={()=>back()}
+        />
+      );
+    case DELETING:
+      return <Status message="Deleting" />;
     default:
       return;
     }

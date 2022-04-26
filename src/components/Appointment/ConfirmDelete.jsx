@@ -9,8 +9,8 @@ export default function ConfirmDelete(props) {
     <main className="appointment__card appointment__card--confirm">
       <h1 className="text--semi-bold">{message}</h1>
       <section className="appointment__actions">
-        <Button danger onClick={handleConfirm}>Confirm</Button>
-        <Button danger onClick={handleCancel}>Cancel</Button>
+        <Button danger handleClick={handleConfirm}>Confirm</Button>
+        <Button danger handleClick={handleCancel}>Cancel</Button>
       </section>
     </main>
   );
