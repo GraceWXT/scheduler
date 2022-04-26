@@ -7,6 +7,7 @@ import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
 import ConfirmDelete from "./ConfirmDelete";
+import Error from "./Error";
 
 export default function Appointment(props) {
 
@@ -19,6 +20,8 @@ export default function Appointment(props) {
   const CONFIRMDELTE = "CONFIRMDELTE";
   const DELETING = "DELETING";
   const EDIT = "EDIT";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
@@ -28,7 +31,9 @@ export default function Appointment(props) {
       interviewer
     };
     transition(SAVING);
-    bookInterview(id, interview).then(() => transition(SHOW));
+    bookInterview(id, interview)
+      .then(() => transition(SHOW))
+      .catch(() => transition(ERROR_SAVE, true));
   };
   const editAppo = () => {
     transition(EDIT);
@@ -38,8 +43,10 @@ export default function Appointment(props) {
   };
   const deleteAppo = () => {
     console.log("deleteAppo called");
-    transition(DELETING);
-    deleteInterview(id).then(() => transition(EMPTY));
+    transition(DELETING, true);
+    deleteInterview(id)
+      .then(() => transition(EMPTY))
+      .catch(() => transition(ERROR_DELETE, true));
   };
 
   const body = (() => {
@@ -82,6 +89,20 @@ export default function Appointment(props) {
           interviewers={interviewers}
           handleSave={(name, interviewer) => saveAppo(name, interviewer)}
           handleCancel={()=>back()}
+        />
+      );
+    case ERROR_SAVE:
+      return (
+        <Error
+          message="Could not save the appointment."
+          handleClose={()=>back()}
+        />
+      );
+    case ERROR_DELETE:
+      return (
+        <Error
+          message="Could not cancel the appointment."
+          handleClose={()=>back()}
         />
       );
     default:
