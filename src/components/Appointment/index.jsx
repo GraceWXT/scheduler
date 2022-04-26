@@ -17,7 +17,6 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
-  
 
   const saveAppo = (name, interviewer) => {
     const interview = {
@@ -29,7 +28,7 @@ export default function Appointment(props) {
   };
 
   const deleteAppo = () => {
-    deleteInterview(id);
+    deleteInterview(id).then(() => transition(EMPTY));
   };
 
   const body = (() => {

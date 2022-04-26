@@ -1,7 +1,7 @@
 import { useState } from "react";
 const useVisualMode = (initialVal) => {
   const [ mode, setMode ] = useState(initialVal);
-  const [history, setHistory] = useState([initialVal]);
+  const [ history, setHistory ] = useState([initialVal]);
 
   const transition  = (mode, replace = false) => {
     if (replace) {
