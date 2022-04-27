@@ -32,7 +32,7 @@ const useApplicationData = () => {
         const oldDayObj = state.days.find(day => day.appointments.includes(id));
         const spots = oldDayObj.appointments.filter((appoId) => !appointments[appoId].interview).length;
         const days = state.days.map(day => {
-          if (day.id === id) return {...oldDayObj, spots};
+          if (day.id === oldDayObj.id) return {...oldDayObj, spots};
           return day;
         });
         return days;
@@ -87,7 +87,16 @@ const useApplicationData = () => {
     });
 
     webSocket.addEventListener("message", (event) => {
-      console.log('Message Received: ', event.data);
+      const message = JSON.parse(event.data);
+      // console.log('Message Received: ', message);
+
+      if (message.type === "SET_INTERVIEW") {
+        dispatch({
+          type: SET_INTERVIEW,
+          id: message.id,
+          interview: message.interview
+        });
+      }
     });
 
     const cleanup = () => WebSocket.close();

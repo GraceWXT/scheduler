@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "components/Appointment/styles.scss";
 import Header from "./Header";
 import Show from "./Show";
@@ -25,6 +25,11 @@ export default function Appointment(props) {
 
   const { mode, transition, back } = useVisualMode(interview ? SHOW : EMPTY);
 
+  useEffect(() => {
+    if (mode === EMPTY && interview) transition(SHOW);
+    if (mode === SHOW && !interview) transition(EMPTY);
+  }, [ mode, interview, transition ]);
+
   const saveAppo = (name, interviewer) => {
     const interview = {
       student: name,
@@ -42,7 +47,6 @@ export default function Appointment(props) {
     transition(CONFIRMDELTE);
   };
   const deleteAppo = () => {
-    console.log("deleteAppo called");
     transition(DELETING, true);
     deleteInterview(id)
       .then(() => transition(EMPTY))
@@ -55,12 +59,12 @@ export default function Appointment(props) {
       return <Empty handleAdd={()=>transition(CREATE)}/>;
     case SHOW:
       return (
-        <Show
-          {...interview}
-          handleDelete={confirmDeleteOfAppo}
-          handleEdit={editAppo}
-        />
-      );
+        interview ?
+          <Show
+            {...interview}
+            handleDelete={confirmDeleteOfAppo}
+            handleEdit={editAppo}
+          /> : "");
     case CREATE:
       return (
         <Form
