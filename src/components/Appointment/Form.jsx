@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Button from "components/Button.jsx";
 import InterviewerList from "components/InterviewerList.jsx";
 
@@ -9,6 +9,11 @@ export default function Form(props) {
   const [studentName, setStudentName] = useState(student || "");
   const [interviewerId, setInterviewerId] = useState(interviewer || null);
   const [error, setError] = useState("");
+
+  // Auto focus on student name input upon form rendering
+  useEffect(()=> {
+    document.getElementsByClassName("appointment__create-input")[0].focus();
+  });
 
   const handleChange = event => setStudentName(event.target.value);
 

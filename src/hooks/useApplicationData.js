@@ -99,7 +99,7 @@ const useApplicationData = () => {
       }
     });
 
-    const cleanup = () => WebSocket.close();
+    const cleanup = () => webSocket.close();
 
     return cleanup;
   }, []);
