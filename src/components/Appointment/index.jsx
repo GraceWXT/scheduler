@@ -30,6 +30,7 @@ export default function Appointment(props) {
     if (mode === SHOW && !interview) transition(EMPTY);
   }, [ mode, interview, transition ]);
 
+  // Functions that handles button click in different modes
   const saveAppo = (name, interviewer) => {
     const interview = {
       student: name,
@@ -53,66 +54,49 @@ export default function Appointment(props) {
       .catch(() => transition(ERROR_DELETE, true));
   };
 
-  const body = (() => {
-    switch (mode) {
-    case EMPTY:
-      return <Empty handleAdd={()=>transition(CREATE)}/>;
-    case SHOW:
-      return (
-        interview ?
-          <Show
-            {...interview}
-            handleDelete={confirmDeleteOfAppo}
-            handleEdit={editAppo}
-          /> : "");
-    case CREATE:
-      return (
-        <Form
-          interviewers={interviewers}
-          handleSave={(name, interviewer) => saveAppo(name, interviewer)}
-          handleCancel={()=>back()}
-        />
-      );
-    case SAVING:
-      return <Status message="Saving" />;
-    case CONFIRMDELTE:
-      return (
-        <ConfirmDelete
-          message="Are you sure you would like to delete this appointment?"
-          handleConfirm={deleteAppo}
-          handleCancel={()=>back()}
-        />
-      );
-    case DELETING:
-      return <Status message="Deleting" />;
-    case EDIT:
-      return (
-        <Form
-          student={interview.student}
-          interviewer={interview.interviewer.id}
-          interviewers={interviewers}
-          handleSave={(name, interviewer) => saveAppo(name, interviewer)}
-          handleCancel={()=>back()}
-        />
-      );
-    case ERROR_SAVE:
-      return (
-        <Error
-          message="Could not save the appointment."
-          handleClose={()=>back()}
-        />
-      );
-    case ERROR_DELETE:
-      return (
-        <Error
-          message="Could not cancel the appointment."
-          handleClose={()=>back()}
-        />
-      );
-    default:
-      return;
-    }
-  })();
+  // Use body[mode]() to conditionally render the body of appointment
+  const body = {
+    EMPTY: () => <Empty handleAdd={()=>transition(CREATE)}/>,
+    SHOW: () =>
+      (interview ?
+        <Show
+          {...interview}
+          handleDelete={confirmDeleteOfAppo}
+          handleEdit={editAppo}
+        /> : ""),
+    CREATE: () =>
+      <Form
+        interviewers={interviewers}
+        handleSave={(name, interviewer) => saveAppo(name, interviewer)}
+        handleCancel={()=>back()}
+      />,
+    SAVING: () => <Status message="Saving" />,
+    CONFIRMDELTE: () =>
+      <ConfirmDelete
+        message="Are you sure you would like to delete this appointment?"
+        handleConfirm={deleteAppo}
+        handleCancel={()=>back()}
+      />,
+    DELETING: () => <Status message="Deleting" />,
+    EDIT: () =>
+      <Form
+        student={interview.student}
+        interviewer={interview.interviewer.id}
+        interviewers={interviewers}
+        handleSave={(name, interviewer) => saveAppo(name, interviewer)}
+        handleCancel={()=>back()}
+      />,
+    ERROR_SAVE: () =>
+      <Error
+        message="Could not save the appointment."
+        handleClose={()=>back()}
+      />,
+    ERROR_DELETE: () =>
+      <Error
+        message="Could not cancel the appointment."
+        handleClose={()=>back()}
+      />,
+  }[mode]();
 
   return (
     <article className="appointment">
