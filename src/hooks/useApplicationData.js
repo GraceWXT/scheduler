@@ -79,6 +79,14 @@ const useApplicationData = () => {
       .then(() => dispatch({type:SET_INTERVIEW, id, interview: null}));
   };
 
+  useEffect(() => {
+    const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
+    const cleanup = () => WebSocket.close();
+
+    return cleanup;
+  }, []);
+
   return {
     state,
     setSelectedDay,
