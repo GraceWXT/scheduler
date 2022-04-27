@@ -82,6 +82,14 @@ const useApplicationData = () => {
   useEffect(() => {
     const webSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
+    webSocket.addEventListener("open", () => {
+      webSocket.send("ping");
+    });
+
+    webSocket.addEventListener("message", (event) => {
+      console.log('Message Received: ', event.data);
+    });
+
     const cleanup = () => WebSocket.close();
 
     return cleanup;
