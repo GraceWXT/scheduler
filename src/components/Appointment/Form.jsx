@@ -29,6 +29,7 @@ export default function Form(props) {
     if (interviewerId === null) {
       return setError("Please select an interviewer");
     }
+    setError("");
     handleSave(studentName, interviewerId);
   };
 
