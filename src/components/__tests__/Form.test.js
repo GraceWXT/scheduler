@@ -100,4 +100,31 @@ describe("Form", () => {
     expect(handleSave).toHaveBeenCalledTimes(1);
     expect(handleSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
   });
+
+  it("calls handleCancel and resets the input field", () => {
+    const handleCancel = jest.fn();
+    const { getByText, getByPlaceholderText, queryByText } = render(
+      <Form
+        interviewers={interviewers}
+        student="Lydia Mill-Jones"
+        interviewer={1}
+        handleSave={jest.fn()}
+        handleCancel={handleCancel}
+      />
+    );
+  
+    fireEvent.click(getByText("Save"));
+  
+    fireEvent.change(getByPlaceholderText("Enter Student Name"), {
+      target: { value: "Lydia Miller-Jones" }
+    });
+  
+    fireEvent.click(getByText("Cancel"));
+  
+    expect(queryByText(/student name cannot be blank/i)).toBeNull();
+  
+    expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
+  
+    expect(handleCancel).toHaveBeenCalledTimes(1);
+  });
 });
