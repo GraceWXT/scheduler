@@ -10,9 +10,10 @@ import ConfirmDelete from "./ConfirmDelete";
 import Error from "./Error";
 
 export default function Appointment(props) {
-
+  // Destrucure the props object
   const { id, time, interview, interviewers, bookInterview, deleteInterview } = props;
   
+  // Setup the visual mode
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -41,12 +42,15 @@ export default function Appointment(props) {
       .then(() => transition(SHOW))
       .catch(() => transition(ERROR_SAVE, true));
   };
+
   const editAppo = () => {
     transition(EDIT);
   };
+
   const confirmDeleteOfAppo = () => {
     transition(CONFIRMDELTE);
   };
+  
   const deleteAppo = () => {
     transition(DELETING, true);
     deleteInterview(id)

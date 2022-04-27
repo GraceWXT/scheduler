@@ -4,9 +4,10 @@ import InterviewerListItem from "./InterviewerListItem";
 import PropTypes from "prop-types";
 
 export default function InterviewerList(props) {
-
+  // Destrucure the props object
   const { interviewers, value, handleClick } = props;
 
+  // Map the interviewers array to an array of <InterviewerListItem>s
   const interviewerListItems = interviewers.map(interviewer => {
     const { id, name, avatar } = interviewer;
     return (

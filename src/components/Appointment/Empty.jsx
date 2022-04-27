@@ -1,7 +1,9 @@
 import React from "react";
 
+/** A component that shows the empty appointment slot
+ * with an add button */
 export default function Empty(props) {
-  const {handleAdd} = props;
+  const { handleAdd } = props;
   return (
     <main className="appointment__add">
       <img
