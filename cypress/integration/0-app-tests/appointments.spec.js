@@ -1,6 +1,7 @@
 describe("Appointments", () => {
 
   beforeEach(() => {
+    // Reset database and visit the app homepage before each test
     cy.request("/api/debug/reset");
     cy.visit("/");
     cy.contains("Monday");
@@ -28,10 +29,23 @@ describe("Appointments", () => {
     cy.get("[data-testid='student-name-input']").clear().type("Lydia Miller-Jones");
     cy.get("[alt='Tori Malcolm']").click();
     cy.contains("Save").click();
-    
+
     // Expect the booked interview to show the correct information
     cy.contains(".appointment__card--show", "Lydia Miller-Jones");
-    cy.contains(".appointment__card--show", "Sylvia Palmer");
+    cy.contains(".appointment__card--show", "Tori Malcolm");
+  });
+
+  it("should cancel an interview", () => {
+    // Click on the Delete button, and confirm delete button
+    cy.get("[alt='Delete']").first().click({ force: true });
+    cy.contains("button", "Confirm").click();
+
+    // the "Deleting" indicator should exist for a while and then be removed
+    cy.contains("Deleting");
+    cy.contains("Deleting").should("not.exist");
+
+    // Confirm the absence of the "Archie Cohen" appointment
+    cy.contains(".appointment__card--show", "Archie Cohen").should("not.exist");
   });
 
 });
