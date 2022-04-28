@@ -122,7 +122,6 @@ const useApplicationData = () => {
     // so that a user can see any other users' update without refreshing the page
     webSocket.addEventListener("message", (event) => {
       const message = JSON.parse(event.data);
-      // console.log('Message Received: ', message);
 
       if (message.type === "SET_INTERVIEW") {
         dispatch({
