@@ -1,7 +1,7 @@
 # Interview Scheduler
 
 ## Project Description
-A React application that allows users to book and cancel interviews. The project takes up W07D1 to W08D3 in the Lighthouse Labs web development bootcamp.
+A React application that allows users to create, edit and delete interview appointments. The project takes up W07D1 to W08D3 in the Lighthouse Labs web development bootcamp.
 
 ## Final Product
 
@@ -28,7 +28,7 @@ A React application that allows users to book and cancel interviews. The project
 
 - [x] Development focuses on a single page application (SPA) called Interview Scheduler, built using React.
 - [x] Data is persisted by the API server using a PostgreSQL database.
-- [x] The client application communicates with an API WebSocket server over HTTP, using the JSON format.
+- [x] The client application communicates with an API (_Stretch: WebSocket_) server over HTTP, using the JSON format.
 - [x] Jest tests are used through the development of the project.
 
 ## Behavioural Requirements
@@ -46,4 +46,7 @@ A React application that allows users to book and cancel interviews. The project
 - [x] A user is shown a status indicator while asynchronous operations are in progress.
 - [x] When the user presses the close button of the error they are returned to the Form or Show view (skipping Status and Confirm).
 - [x] The application makes API requests to load and persist data. We do not lose data after a browser refresh.
-- [x] When a user books or cancels an interview, all connected users see the update in their browser.
+- [x] (_Stretch_) When a user books or cancels an interview, all connected users see the update in their browser.
+
+## Additional Feature
+- Auto focus on the student name input field upon form rendering
