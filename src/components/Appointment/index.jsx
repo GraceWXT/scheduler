@@ -97,7 +97,7 @@ export default function Appointment(props) {
       />,
     ERROR_DELETE: () =>
       <Error
-        message="Could not cancel the appointment."
+        message="Could not delete the appointment."
         handleClose={()=>back()}
       />,
   }[mode]();

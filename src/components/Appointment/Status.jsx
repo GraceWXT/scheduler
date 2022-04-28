@@ -1,5 +1,7 @@
 import React from "react";
 
+/** A transitioning component showing a loading indicator img
+ * and the action in progress in text */
 export default function Status(props) {
   const {message} = props;
   return (

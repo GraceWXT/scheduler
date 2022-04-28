@@ -1,5 +1,7 @@
 import React from "react";
 
+/** A component that shows the detail of an appointment
+ * and allows the user to edit or delete it */
 export default function Show(props) {
   
   const { student, interviewer, handleEdit, handleDelete } = props;

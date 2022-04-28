@@ -90,12 +90,12 @@
 
 ### Appointment/Form
 
-- State: student (name input, string), interviewer (id, number or null)
+- State: studentName (name input, string), interviewerId (id, number or null), error (string)
 - __Props__: __student__ (String, optional), __interviewer__ (Number, optional), __interviewers__ (Array), __handleSave__ (Function), __handleCancel__ (Function),
 - Used by: Appointment
 
 ### Application
 
 - __State__: __days__ (array), __selectedDay__ (name string), __appointements__ (object of objects), __interviewers__ (object of objects)
-- Props: 
+- Props: None
 - Used by: Everyone

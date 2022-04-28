@@ -1,5 +1,7 @@
 import React from "react";
 
+/** A component that shows the error message to the user
+ * and allows the user to go back to the previous step on close */
 export default function Error(props) {
 
   const { message, handleClose } = props;

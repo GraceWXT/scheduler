@@ -3,20 +3,23 @@ import Button from "components/Button.jsx";
 import InterviewerList from "components/InterviewerList.jsx";
 
 export default function Form(props) {
-
+  // Destrucure the props object
   const { student, interviewer, interviewers, handleSave, handleCancel } = props;
 
+  // Setup the states
   const [studentName, setStudentName] = useState(student || "");
   const [interviewerId, setInterviewerId] = useState(interviewer || null);
   const [error, setError] = useState("");
 
-  // Auto focus on student name input upon form rendering
+  // Auto focus on the student name input field upon form rendering
   useEffect(()=> {
     document.getElementsByClassName("appointment__create-input")[0].focus();
   });
 
+  // Handle changes for the controlled input field
   const handleChange = event => setStudentName(event.target.value);
 
+  // Functions that handles cancel or save button click
   const resetForm = () => {
     setStudentName("");
     setInterviewerId(null);
@@ -38,6 +41,8 @@ export default function Form(props) {
     handleSave(studentName, interviewerId);
   };
 
+  // Returns a Form element that contains the student name input field,
+  // interviewers list and the cancel & save buttons
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">

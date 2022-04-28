@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "components/Button";
 
+/** A component that shows a message to confirm deleting of an appointment,
+ * giving the user the options to confirm or cancel the action */
 export default function ConfirmDelete(props) {
 
   const { message, handleConfirm, handleCancel } = props;
