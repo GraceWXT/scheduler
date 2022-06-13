@@ -1,3 +1,4 @@
+// Reusable static data
 const fixtures = {
   days: [
     {
@@ -51,4 +52,31 @@ const fixtures = {
       avatar: "https://i.imgur.com/FK8V841.jpg"
     }
   }
+};
+
+// export a mock object that returns resolved Promises to match the Axios interface
+export default {
+  get: jest.fn(url => {
+    if (url === "api/days") {
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.days
+      });
+    }
+    if (url === "api/appointments") {
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.appointments
+      });
+    }
+    if (url === "api/interviewers") {
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.interviewers
+      });
+    }
+  })
 };
