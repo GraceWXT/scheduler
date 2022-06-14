@@ -15,3 +15,7 @@ it("defaults to Monday and changes the schedule when a new day is selected", () 
       expect(getByText("Leopold Silvers")).toBeInTheDocument();
     });
 });
+
+it("loads data, books an interview and reduces the spots remaining for the first day by 1", () => {
+
+});
