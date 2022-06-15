@@ -12,7 +12,7 @@ import Error from "./Error";
 export default function Appointment(props) {
   // Destrucure the props object
   const { id, time, interview, interviewers, bookInterview, deleteInterview } = props;
-  
+
   // Setup the visual mode
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -50,7 +50,7 @@ export default function Appointment(props) {
   const confirmDeleteOfAppo = () => {
     transition(CONFIRMDELTE);
   };
-  
+
   const deleteAppo = () => {
     transition(DELETING, true);
     deleteInterview(id)
@@ -103,7 +103,7 @@ export default function Appointment(props) {
   }[mode]();
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={time}/>
       {body}
     </article>
