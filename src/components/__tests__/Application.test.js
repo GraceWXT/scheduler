@@ -46,5 +46,12 @@ describe("Application", () => {
 
     // Output the current state of the DOM: Saving
     debug();
+
+    // Verify the appointment element contains the text "Saving" immediately after
+    // the "Save" button is clicked
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
+    // Confirm the student's name is shown after saving
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
   });
 });
