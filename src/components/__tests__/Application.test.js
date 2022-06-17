@@ -22,6 +22,7 @@ describe("Application", () => {
 
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     const { container, debug } = render(<Application />);
+
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     // Get all appointments
@@ -29,7 +30,7 @@ describe("Application", () => {
 
     // Get the first appointment which should be empty with the mock data
     const appointment = appointments[0];
-    console.log(prettyDOM(appointment));
+    // console.log(prettyDOM(appointment));
 
     // Click the add button in the first appointment
     fireEvent.click(getByAltText(appointment, "Add"));
@@ -45,7 +46,7 @@ describe("Application", () => {
     fireEvent.click(getByText(appointment, "Save"));
 
     // Output the current state of the DOM: Saving
-    debug();
+    // debug();
 
     // Verify the appointment element contains the text "Saving" immediately after
     // the "Save" button is clicked
