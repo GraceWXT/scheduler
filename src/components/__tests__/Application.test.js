@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   render, cleanup, waitForElement, fireEvent, prettyDOM,
-  getByText, getAllByTestId
+  getByText, getAllByTestId, getByAltText, getByPlaceholderText
 } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -25,7 +25,25 @@ describe("Application", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
     console.log(prettyDOM(container));
 
+    // Get all appointments
     const appointments = getAllByTestId(container, "appointment");
     console.log(prettyDOM(appointments));
+
+    // Get the first appointment which should be empty with the mock data
+    const appointment = appointments[0];
+    console.log(prettyDOM(appointment));
+
+    // Click the add button in the first appointment
+    fireEvent.click(getByAltText(appointment, "Add"));
+
+    // Change the student name input
+    fireEvent.change(getByPlaceholderText(appointment, "Enter Student Name"),
+      { target: { value: "Lydia Miller-Jones" } });
+
+    // Select an interviewer
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+
+    // Click save button
+    fireEvent.click(getByText(appointment, "Save"));
   });
 });
