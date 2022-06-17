@@ -21,13 +21,11 @@ describe("Application", () => {
   });
 
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
-    const { container } = render(<Application />);
+    const { container, debug } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
-    console.log(prettyDOM(container));
 
     // Get all appointments
     const appointments = getAllByTestId(container, "appointment");
-    console.log(prettyDOM(appointments));
 
     // Get the first appointment which should be empty with the mock data
     const appointment = appointments[0];
@@ -45,5 +43,8 @@ describe("Application", () => {
 
     // Click save button
     fireEvent.click(getByText(appointment, "Save"));
+
+    // Output the current state of the DOM: Saving
+    debug();
   });
 });
