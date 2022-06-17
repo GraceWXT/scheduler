@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   render, cleanup, waitForElement, fireEvent, prettyDOM,
-  getByText, getAllByTestId, getByAltText, getByPlaceholderText
+  getByText, getAllByTestId, getByAltText, getByPlaceholderText, queryByText
 } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -53,5 +53,12 @@ describe("Application", () => {
 
     // Confirm the student's name is shown after saving
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+
+    // Find the dom node for "Monday" from the array of DayListItems
+    const monday = getAllByTestId(container, "day")
+      .find(day => queryByText(day, "Monday"));
+
+    // Verify Monday has no spots remaining
+    expect(getByText(monday, "no spots remaining")).toBeInTheDocument();
   });
 });
