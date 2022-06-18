@@ -70,9 +70,21 @@ describe("Application", () => {
     // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
+    // Get the "Archie Cohen" appointment
+    const appointment = getAllByTestId(container, "appointment")
+      .find(appointment => queryByText(appointment, "Archie Cohen"));
+
     // 3. Click the "Delete" button on the "Archie Cohen" appointment.
+    fireEvent.click(getByAltText(appointment, "Delete"));
+
     // 4. Check that the confirmation message is shown.
+    expect(getByText(appointment, "Are you sure you would like to delete this appointment?"))
+      .toBeInTheDocument();
+
     // 5. Click the "Confirm" button on that same appointment.
+    fireEvent.click(getByText(appointment, "Confirm"));
+    console.log(prettyDOM(appointment));
+
     // 6. Check that the element with the text "Deleting" is displayed.
     // 7. Wait until the element with the alt text "Add" is displayed.
     // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
