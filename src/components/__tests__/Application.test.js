@@ -10,6 +10,7 @@ import Application from "components/Application";
 describe("Application", () => {
   afterEach(cleanup);
 
+  // Loading data and changing the schedule asynchronously
   it("defaults to Monday and changes the schedule when a new day is selected", () => {
     const { getByText } = render(<Application />);
 
@@ -20,6 +21,7 @@ describe("Application", () => {
       });
   });
 
+  // Booking an interview
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
     const { container, debug } = render(<Application />);
 
@@ -63,6 +65,7 @@ describe("Application", () => {
     expect(getByText(monday, "no spots remaining")).toBeInTheDocument();
   });
 
+  // Deleting an interview
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application.
     const { container } = render(<Application />);
