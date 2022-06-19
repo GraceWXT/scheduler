@@ -138,8 +138,61 @@ describe("Application", () => {
     expect(getByText(monday, "1 spot remaining")).toBeInTheDocument();
   });
 
-  // Error Handling
-  it("shows the save error when failing to save an appointment", () => {
+  // Error Handling - Saving
+  it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
+
+    const { container, debug } = render(<Application />);
+
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
+    // Get all appointments
+    const appointments = getAllByTestId(container, "appointment");
+
+    // Get the first appointment which should be empty with the mock data
+    const appointment = appointments[0];
+    // console.log(prettyDOM(appointment));
+
+    // Click the add button in the first appointment
+    fireEvent.click(getByAltText(appointment, "Add"));
+
+    // Change the student name input
+    fireEvent.change(getByPlaceholderText(appointment, "Enter Student Name"),
+      { target: { value: "Lydia Miller-Jones" } });
+
+    // Select an interviewer
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+
+    // Click save button
+    fireEvent.click(getByText(appointment, "Save"));
+
+    // Verify the appointment element contains the text "Saving" immediately after
+    // the "Save" button is clicked
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
+    // Output the current state of the DOM: Saving
+    debug();
+
+    // Confirm the saving error is shown
+    await waitForElement(() => getByText(appointment, "Could not save the appointment."));
+
+    // Click the close button
+    fireEvent.click(getByAltText(appointment, "Close"));
+
+    // Confirm the appointment card is back to form
+    expect(getByPlaceholderText(appointment, "Enter Student Name")).toBeInTheDocument();
+
+    // Find the dom node for "Monday" from the array of DayListItems
+    const monday = getAllByTestId(container, "day")
+      .find(day => queryByText(day, "Monday"));
+
+    // Verify Monday still has 1 spot remaining
+    expect(getByText(monday, "1 spot remaining")).toBeInTheDocument();
+
+  });
+
+  // Error Handling - Deleting
+  it("shows the delete error when failing to delete an existing appointment", async () => {
+    axios.delete.mockRejectedValueOnce();
   });
 });
