@@ -171,7 +171,7 @@ describe("Application", () => {
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
     // Output the current state of the DOM: Saving
-    debug();
+    // debug();
 
     // Confirm the saving error is shown
     await waitForElement(() => getByText(appointment, "Could not save the appointment."));
