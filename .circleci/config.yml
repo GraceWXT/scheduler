@@ -18,6 +18,21 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+  deploy:
+    machine:
+      enabled: true
+
+    working_directory: ~/client
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "85:f1:f4:0b:04:68:33:ad:41:0a:93:a3:9d:2c:1c:ac"
+      - checkout
+      - run:
+          name: Push Master to Production
+          command: |
+            git push https://github.com/GraceWXT/scheduler.git master:production
 
 workflows:
   version: 2
