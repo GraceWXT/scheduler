@@ -3,7 +3,10 @@
 ## Project Description
 A React application that allows users to create, edit and delete interview appointments. The project takes up W07D1 to W08D3 in the Lighthouse Labs web development bootcamp.
 
-## Final Product
+## Live Demo
+You can find a live demo of this app [here](https://scheduler-gracewxt.netlify.app). The API server deployed on Heroku sleeps when there's no web traffic in a 30-minute period, so you may need to refresh to see the appointments after navigating to the site.
+
+## Screenshots
 
 !["show and empty mode"](https://github.com/GraceWXT/scheduler/blob/568543dd7f35d13aa2612cebced43ff82dabdc0d/docs/show-and-empty.png?raw=true)
 !["create mode"](https://github.com/GraceWXT/scheduler/blob/568543dd7f35d13aa2612cebced43ff82dabdc0d/docs/create.png?raw=true)
@@ -16,12 +19,13 @@ A React application that allows users to create, edit and delete interview appoi
 - React
 - Webpack, Babel
 - Axios, WebSockets
-- Storybook, Webpack Dev Server, Jest, Testing Library
+- Storybook, Jest, Testing Library, Cypress
+- CircleCI, Heroku, Netlify
 
 ## Getting Started
-
+0. Start the [API server](https://github.com/GraceWXT/scheduler-api) following the README.
 1. Install dependencies using the `npm install` command.
-2. Start the web server and API server using the `npm start` command.
+2. Start the web server using the `npm start` command.
 3. Webpack Dev Server will navigate you to <http://localhost:8000/> in your browser.
 
 ## Functional Requirements
@@ -31,7 +35,7 @@ A React application that allows users to create, edit and delete interview appoi
 - [x] The client application communicates with an API (_Stretch: WebSocket_) server over HTTP, using the JSON format.
 - [x] Jest tests are used through the development of the project.
 
-## Behavioural Requirements
+## Behavioral Requirements
 
 - [x] Interviews can be booked between Monday and Friday.
 - [x] A user can switch between weekdays.
